@@ -3,17 +3,15 @@ import React from 'react';
 export default class AdressDetail extends React.Component{
     render() {
         const detail = (<div>
-            <p>{this.props.contact.name}</p>
+            <h1>{this.props.contact.name}</h1>
             <p>{this.props.contact.phone}</p>
             </div>)
 
         const blank = (<div></div>)
 
         return(
-            
         <div>
-            <h1>{this.props.contact.name}</h1>
-        {this.props.isSelected ? detail : blank}
+            {this.props.isSelected ? detail : blank}
         </div>
     )
     }

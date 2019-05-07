@@ -53,8 +53,8 @@ export default class Contact extends React.Component{
             return data.map((contact, i) => {
                 return (<AdressList 
                     contact={contact}
-                     key={i}
-                     onClick={() => this.handleClick(i)}/>);
+                    key={i}
+                    onClick={() => this.handleClick(i)}/>);
             });
         };
         
@@ -69,7 +69,8 @@ export default class Contact extends React.Component{
 
                 <div>{mapToComponents(this.state.contactData)}</div>
                 <AdressDetails 
-                isSelected={this.props.selectedKey !== -1} contact = {this.props.contactData}/>
+                isSelected = {this.props.selectedKey !== -1}
+                contact = {this.state.contactData[this.state.selectedKey]}/>
             </div>
         );
     }
