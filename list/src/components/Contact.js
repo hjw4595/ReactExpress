@@ -1,6 +1,7 @@
 import React from 'react';
 import AdressList from './AdressList';
 import AdressDetails from './AdressDetails';
+import update from 'react-addons-update';
 
 export default class Contact extends React.Component{
     
@@ -26,7 +27,11 @@ export default class Contact extends React.Component{
         //임의의 메소드를 만들떄 바인딩
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
-    }
+
+        this.handleCreate = this.handleCreate.bind(this);
+        this.handelDelete = this.handelDelete.bind(this);
+        this.handeUpdate = this.handeUpdate.bind(this);    
+        }
 
     handleChange (e) {
         this.setState({
@@ -36,6 +41,33 @@ export default class Contact extends React.Component{
     handleClick (key){
         this.setState({
             selectedKey : key
+        });
+    }
+
+    handleCreate(contact){
+        this.setState({
+            contactData: update(this.state.contactData,{$push:[contact]})
+        })
+    }
+    
+    handelDelete(){
+        this.setState({
+            contactData: update(this.state.contactData,
+            {$splice: [[this.state.selectedKey,1]]}
+        ),
+        selectedKey : -1 
+        })
+    }
+    handeUpdate(name, phone){
+        this.setState({
+            contactData:update(this.state.contactData,
+                {                    
+                    [this.state.selectedKey]: {
+                    name: { $set: name },
+                    phone: { $set: phone }
+                    }
+                }
+            )
         });
     }
     
