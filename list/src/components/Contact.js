@@ -1,6 +1,8 @@
 import React from 'react';
 import AdressList from './AdressList';
 import AdressDetails from './AdressDetails';
+import AdressUpdate from './AdressUpdate';
+
 import update from 'react-addons-update';
 
 export default class Contact extends React.Component{
@@ -103,6 +105,8 @@ export default class Contact extends React.Component{
                 <AdressDetails 
                 isSelected = {this.props.selectedKey !== -1}
                 contact = {this.state.contactData[this.state.selectedKey]}/>
+                <AdressUpdate 
+                onCreate={this.handleCreate}/>
             </div>
         );
     }
