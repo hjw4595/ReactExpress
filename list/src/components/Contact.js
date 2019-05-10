@@ -1,7 +1,7 @@
 import React from 'react';
 import AdressList from './AdressList';
 import AdressDetails from './AdressDetails';
-import AdressUpdate from './AdressUpdate';
+import AdressAdd from './AdressAdd';
 
 import update from 'react-addons-update';
 
@@ -104,9 +104,13 @@ export default class Contact extends React.Component{
                 <div>{mapToComponents(this.state.contactData)}</div>
                 <AdressDetails 
                 isSelected = {this.props.selectedKey !== -1}
-                contact = {this.state.contactData[this.state.selectedKey]}/>
-                <AdressUpdate 
-                onCreate={this.handleCreate}/>
+                contact = {this.state.contactData[this.state.selectedKey]}
+                onDelete = {this.handelDelete}
+                onUpdateName = {this.handeUpdate.name}
+                onUpdatePhone = {this.handeUpdate.phone}/>
+                <AdressAdd 
+                onCreate={this.handleCreate}
+                />
             </div>
         );
     }
