@@ -106,8 +106,7 @@ export default class Contact extends React.Component{
                 isSelected = {this.props.selectedKey !== -1}
                 contact = {this.state.contactData[this.state.selectedKey]}
                 onDelete = {this.handelDelete}
-                onUpdateName = {this.handeUpdate.name}
-                onUpdatePhone = {this.handeUpdate.phone}/>
+                onUpdate = {this.handeUpdate}/>
                 <AdressAdd 
                 onCreate={this.handleCreate}
                 />

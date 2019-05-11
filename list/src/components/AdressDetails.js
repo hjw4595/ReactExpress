@@ -9,8 +9,12 @@ export default class AdressDetail extends React.Component{
             name : '',
             phone : ''
         }
-        this.handleToggle = this.handleToggle.bind(this)
-        this.handleChange =this.handleChange.bind(this)
+        this.handleToggle = this.handleToggle.bind(this);
+        this.handleChange =this.handleChange.bind(this);
+        this.handleUpdate = this.handleUpdate.bind(this);
+    }
+    handleUpdate() {
+        this.props.onUpdate(this.state.name, this.state.phone)
     }
 
     handleChange(e) {
@@ -24,7 +28,9 @@ export default class AdressDetail extends React.Component{
             this.setState({
                 name: this.props.contact.name,
                 phone : this.props.contact.phone
-            })
+            });
+        }else {
+            this.handleUpdate();
         }
         this.setState({
             isUpdate : !this.state.isUpdate
@@ -34,6 +40,7 @@ export default class AdressDetail extends React.Component{
         const detail = (<div>
             <h1>{this.props.contact.name}</h1>
             <p>{this.props.contact.phone}</p>
+            <button>asd</button>
             </div>)
 
         const update = (
@@ -61,7 +68,7 @@ export default class AdressDetail extends React.Component{
 
         return(
         <div>
-            {this.props.isSelected ? view : blank}
+            {this.props.isSelected ? view : blank}        
             <button onClick={this.props.onDelete}>삭제</button>
             <button onClick={this.handleToggle}>{this.state.isUpdate ? '확인' : '수정' }</button>
         </div>
@@ -73,6 +80,7 @@ AdressDetail.defaultProps = {
         contact :{
             name : '',
             phone : ''
-        }
+        },
+        onUpdate: () => {console.error('에러')}
     }
 }
