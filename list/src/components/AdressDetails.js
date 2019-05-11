@@ -10,9 +10,22 @@ export default class AdressDetail extends React.Component{
             phone : ''
         }
         this.handleToggle = this.handleToggle.bind(this)
+        this.handleChange =this.handleChange.bind(this)
+    }
+
+    handleChange(e) {
+        let fixState = {};
+        fixState[e.target.name] = e.target.value;
+        this.setState(fixState)
     }
 
     handleToggle(){
+        if(!this.state.isUpdate){
+            this.setState({
+                name: this.props.contact.name,
+                phone : this.props.contact.phone
+            })
+        }
         this.setState({
             isUpdate : !this.state.isUpdate
         })
@@ -23,15 +36,34 @@ export default class AdressDetail extends React.Component{
             <p>{this.props.contact.phone}</p>
             </div>)
 
-        const view = this.state.isUpdate ? (<div></div>) : detail; 
-
+        const update = (
+            <div>
+            <p>
+            <input
+                type="text"
+                name="name"
+                placeholder="name"
+                value={this.state.name}
+                onChange={this.handleChange}
+            />
+            <input
+                type="text"
+                name="phone"
+                placeholder="phone"
+                value={this.state.phone}
+                onChange={this.handleChange}
+            />
+        </p>
+        </div>
+        )
+        const view = this.state.isUpdate ? update : detail; 
         const blank = (<div></div>)
 
         return(
         <div>
             {this.props.isSelected ? view : blank}
             <button onClick={this.props.onDelete}>삭제</button>
-            <button onClick={this.handleToggle}>수정</button>
+            <button onClick={this.handleToggle}>{this.state.isUpdate ? '확인' : '수정' }</button>
         </div>
     )
     }
