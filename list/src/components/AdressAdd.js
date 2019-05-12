@@ -22,13 +22,18 @@ export default class ContactCreate extends React.Component {
             name: this.state.name,
             phone: this.state.phone
         };
-
         this.props.onCreate(contact);
 
         this.setState({
             name: '',
             phone: ''
         });
+    }
+
+    handleKeypress(e) {
+        if(e.charcode===13){
+            this.handleClick();
+        }
     }
 
     render() {
@@ -49,6 +54,7 @@ export default class ContactCreate extends React.Component {
                         placeholder="phone"
                         value={this.state.phone}
                         onChange={this.handleChange}
+                        onKeypress={this.handleKeypress}
                     />
                 </p>
                 <button onClick={this.handleClick}>추가하기</button>
