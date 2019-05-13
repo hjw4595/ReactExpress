@@ -57,7 +57,7 @@ export default class ContactCreate extends React.Component {
                         placeholder="phone"
                         value={this.state.phone}
                         onChange={this.handleChange}
-                        onKeypress={this.handleKeyPress}
+                        onKeyPress={this.handleKeyPress}
                     />
                 </p>
                 <button onClick={this.handleClick}>추가하기</button>
