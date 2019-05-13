@@ -9,6 +9,7 @@ export default class ContactCreate extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
 
     handleChange(e) {
@@ -28,9 +29,10 @@ export default class ContactCreate extends React.Component {
             name: '',
             phone: ''
         });
+        this.nameInput.focus();
     }
 
-    handleKeypress(e) {
+    handleKeyPress(e) {
         if(e.charcode===13){
             this.handleClick();
         }
@@ -47,6 +49,7 @@ export default class ContactCreate extends React.Component {
                         placeholder="name"
                         value={this.state.name}
                         onChange={this.handleChange}
+                        ref={(ref)=>{this.nameInput = (ref)}}
                     />
                     <input
                         type="text"
@@ -54,7 +57,7 @@ export default class ContactCreate extends React.Component {
                         placeholder="phone"
                         value={this.state.phone}
                         onChange={this.handleChange}
-                        onKeypress={this.handleKeypress}
+                        onKeypress={this.handleKeyPress}
                     />
                 </p>
                 <button onClick={this.handleClick}>추가하기</button>

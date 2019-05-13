@@ -40,7 +40,6 @@ export default class AdressDetail extends React.Component{
         const detail = (<div>
             <h1>{this.props.contact.name}</h1>
             <p>{this.props.contact.phone}</p>
-            <button>asd</button>
             </div>)
 
         const update = (
