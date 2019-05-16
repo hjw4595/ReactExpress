@@ -1,23 +1,25 @@
 
-    import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import Controller from './Controller';
+import Value from './Value';
     
         const propTypes = { };
     
         const defaultProps = { };
 
-        class $1 extends Component { 
-            constructor(props) { 
-                super(props);
-                
-            }
+        class Counter extends Component { 
+
             render() {
                 return(
-                    <div>$1</div>
+                    <div>
+                        <Value />
+                        <Controller/>
+                    </div>
                 )
             }
         }
 
-        $1.propTypes = propTypes;
-        $1.defaultProps = defaultProps
-        export default $1;
+        Counter.propTypes = propTypes;
+        Counter.defaultProps = defaultProps
+        export default Counter;
     

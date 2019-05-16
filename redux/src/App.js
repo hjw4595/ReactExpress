@@ -1,19 +1,13 @@
-
-    import React, { Component, PropTypes } from 'react';
-    
-    const propTypes = { };
-
-    const defaultProps = { };
-
+import React, { Component } from 'react';
+import Counter from './Components/Counter';
     class App extends Component { 
         render() {
             return(
-                <div>App</div>
+                <div>
+                    <Counter />
+                </div>
             )
         }
     }
 
-    App.propTypes = propTypes;
-    App.defaultProps = defaultProps
-    
     export default App;

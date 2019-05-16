@@ -1,5 +1,6 @@
 
-    import React, { Component, PropTypes } from 'react';
+    import React, { Component} from 'react';
+    import PropTypes from 'prop-types'
     
     const propTypes = {
         number : PropTypes.number
@@ -10,9 +11,7 @@
      };
 
     class Value extends Component { 
-        constructor(props) { 
-            super(props);
-        }
+
         render() {
             return(
                 <div>{this.props.number}</div>
