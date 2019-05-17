@@ -1,8 +1,8 @@
-import {combinReducers} from 'redux';
+import {combineReducers} from 'redux';
 import counter from './Counter';
 import ui from './Ui';
 
-const reducers = combinReducers({
+const reducers = combineReducers({
     counter , ui
 });
 
