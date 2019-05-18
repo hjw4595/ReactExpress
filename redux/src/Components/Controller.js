@@ -4,19 +4,27 @@
     
     const propTypes = { 
         onPlus: PropTypes.func,
+        onSubtract : PropTypes.func,
         onRandomColor: PropTypes.func
     };
+    function creatWarning(funcName){
+        return () => console.log(funcName + 'is not defind')
+    }
 
-    const defaultProps = { };
+    const defaultProps = {
+        onPlus: creatWarning('onPlus'),
+        onSubtract :creatWarning('onSubtract'),
+        onRandomColor:creatWarning('onRandomColor')
+     };
 
     class Controller extends Component { 
 
         render() {
             return(
                 <div>
-                    <button>+</button>
-                    <button>-</button>
-                    <button>random backgroundcolor</button>
+                    <button onClick={this.props.onPlus}>+</button>
+                    <button onClick={this.props.onSubtract}>-</button>
+                    <button onClick={this.props.onRandomColor}>random backgroundcolor</button>
                 </div>
             )
         }
