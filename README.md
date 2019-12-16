@@ -1,4 +1,2 @@
 # ReactExpress
-react
-express 
-mongoDB
+react + express + mongoDB
